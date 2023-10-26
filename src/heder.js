@@ -2,6 +2,7 @@ import { Button, Container, ListGroupItem, Nav, Navbar, NavDropdown, } from 'rea
 import rushi from './assets/images/Logo-mock-2_trans.webp'
 import { ArrowRight, Cart, Facebook, Google, Pin } from 'react-bootstrap-icons';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Heder() {
@@ -9,7 +10,11 @@ export default function Heder() {
         localStorage.removeItem('id')
         // localStorage.removeItem('cartid')
     }
-
+    const navigate = useNavigate();
+    const toabout = () => {
+        navigate("/about");
+        
+    }
     return (
 
         <>
@@ -24,14 +29,14 @@ export default function Heder() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className='col-8'>
                         <Nav className="ms-auto">
-                            <Nav.Link eventKey={2} onClick={() => { window.location.href = './' }}>
+                            <Nav.Link eventKey={2} onClick={() => { navigate("/") }}>
                                 home
                             </Nav.Link>
-                            <Nav.Link eventKey={2} onClick={() => { window.location.href = './about' }}>
+                            <Nav.Link eventKey={2} onClick={() => { navigate("/about") }}>
                                 about
                             </Nav.Link>
 
-                            <Nav.Link eventKey={2} onClick={() => { window.location.href = './service' }}>
+                            <Nav.Link eventKey={2} onClick={() => { navigate("/service") }}>
                                 service
                             </Nav.Link>
 
